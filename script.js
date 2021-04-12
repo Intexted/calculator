@@ -72,7 +72,7 @@ operationButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (currentOperandTextElement.textContent === '') return
         if (previousOperandTextElement.textContent === '') {
-            let firstNumber = parseFloat(currentOperand);
+            let firstNumber = parseFloat(currentOperandTextElement.textContent);
             operation = button.innerText;
             currentOperand = '';
             previousOperandTextElement.textContent = firstNumber.toString() + ' ' + operation;
