@@ -70,11 +70,21 @@ numberButtons.forEach(button => {
 
 operationButtons.forEach(button => {
     button.addEventListener('click', () => {
-        let firstNumber = parseFloat(currentOperand);
-        operation = button.innerText;
-        currentOperand = '';
-        previousOperandTextElement.textContent = firstNumber.toString() + ' ' + operation;
-        updateDisplay('');
+        if (currentOperandTextElement.textContent === '') return
+        if (previousOperandTextElement.textContent === '') {
+            let firstNumber = parseFloat(currentOperand);
+            operation = button.innerText;
+            currentOperand = '';
+            previousOperandTextElement.textContent = firstNumber.toString() + ' ' + operation;
+            updateDisplay('');
+        } else {
+            let x = parseFloat(previousOperandTextElement.textContent)
+            let y = parseFloat(currentOperandTextElement.textContent)
+            operation = button.innerText;
+            previousOperandTextElement.textContent = operate(operation, x, y).toString();
+            currentOperand = '';
+            updateDisplay('');
+        }
     })
 })
 
