@@ -80,8 +80,7 @@ operationButtons.forEach(button => {
         } else {
             let x = parseFloat(previousOperandTextElement.textContent)
             let y = parseFloat(currentOperandTextElement.textContent)
-
-            previousOperandTextElement.textContent = operate(operation, x, y).toString();
+            previousOperandTextElement.textContent = operate(operation, x, y).toString() + ' ' + button.innerText;
             currentOperand = '';
             operation = button.innerText;
             updateDisplay('');
